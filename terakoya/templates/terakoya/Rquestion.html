@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" type="text/css"
+  href="{% static 'terakoya/css/style.css' %}"/>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+  <h1>{{title}}</h1>
+  <p>{{msg}}</p>
+  <p>以下の２つの大きさを比べ、大きいほうを選べ。</p>
+  <br>
+  <p>問１</p>
+  <h3><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msqrt><mn>{{num1}}</mn></msqrt>
+  <mo>,</mo>
+  <msqrt><mn>{{num2}}</mn></msqrt>
+  </math></h3>
+  
+  <p>問2</p>
+  <h3><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msqrt><mn>{{num3}}</mn></msqrt>
+  <mo>,</mo>
+  <msqrt><mn>{{num4}}</mn></msqrt>
+  </math></h3>
+  <p>{{result|safe}}</p>
+  <table>
+  <form action="{% url 'Rquestion' %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <tr><td></td><td><input type="submit" value="click"></td></tr>
+  </form>
+  </table>
+  <center><a class="button1" href="{% url goto %}">{{goto_memo}}</a></center>
+  <p style="margin:20px;">
+  <center><a class="button1" href="{% url home %}">HOME</a></center>
+  </p>
+
+</body>
+</html>

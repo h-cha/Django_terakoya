@@ -1,0 +1,62 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" type="text/css"
+  href="{% static 'terakoya/css/style.css' %}"/>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+  <h1>{{title}}</h1>
+  <p>{{msg}}</p>
+  <p>以下の２つの大きさを比べてください。</p>
+  <br>
+  <p>（１）
+  <h3><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msqrt><mn>5</mn></msqrt>
+  <mo>、</mo>
+  <msqrt><mn>2</mn></msqrt>
+  </math></h3></p> 
+  <br>
+  <p>これは、どのように求めたらよいでしょうか。</p>
+  <p>どちらにもルートがついている場合は、ルートの中身の大きさを比較します。</p>
+  <p>したがって
+  <h3><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msqrt><mn>5</mn></msqrt>
+  <mo>＞</mo>
+  <msqrt><mn>2</mn></msqrt>
+  </math></h3> になります。</p>
+  <br>
+  <br>
+  <p>次のものを見てみましょう。</p>
+  <p>（2）
+  <h3><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msqrt><mi>5</mi></msqrt>
+  <mo>、</mo>
+  <mn>3</mn></math>
+  </h3> 
+  <br>
+　これはどのように比べたらよいでしょうか。
+  <p>ルートがついているものとついていないものを比較する際には、
+  <br>どちらもルートをつけるか、外すかで、形をそろえなければなりません。
+  <br>したがって、3をルートの形に直すと、
+  <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msqrt><mi>9</mi></msqrt></math>
+  <br>となるので、大きさを比較すると、
+  <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msqrt><mn>5</mn></msqrt>
+  <mo>＞</mo>
+  <msqrt><mn>2</mn></msqrt></math>
+  <br>になります。
+  </p>
+  <br>
+  <br>
+  <p>では、問題を解いてみましょう</p>
+  <center><a class="button1" href="{% url goto %}">{{goto_memo}}</a></center>
+  <p style="margin:20px;">
+  <center><a class="button1" href="{% url home %}">HOME</a></center>
+  </p>
+</body>
+</html>

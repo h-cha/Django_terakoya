@@ -1,0 +1,11 @@
+#プロジェクト全体から除外
+__pycache__
+*.pyc
+*.pyo
+
+
+#root起点に除外
+/config
+/work
+/db.sqlite3
+/images

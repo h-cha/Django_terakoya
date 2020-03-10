@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'terakoya/css/style.css' %}" />
+</head>
+
+<body>
+    <h1>{{title}}</h1>
+    {% for q in question %}
+    <p>{{memo}}{{q.id}}</p>
+    <p>{{q.q1}}</p>
+    <p>{{q.q2}}</p>
+    <p>{{q.q3}}</p>
+    <p>{{q.q4}}</p>
+    {% endfor %}
+    <p style="margin:50px;"></p>
+    <p>{{message}}</p>
+    <p>{{msg1}}</p>
+    <table>
+        <form action="{% url 'Kcreate' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table}}
+        <tr><td></td><td><input type="submit" value="答え"></td></tr>
+        </form>
+    </table>
+    <p style="margin:20px;">
+    <center><a class="button1" href="{% url home %}">HOME</a></center>
+    </p>
+</body>
+</html>
